@@ -7,14 +7,14 @@ router.get('/', async function getPosts(req, res) {
   res.status(200).json(posts);
 });
 
-// router.post('/create', function createPost(req, res) {
-//   const { userName, timeStamp, content, image } = req.body;
+router.post('/create', async function createPost(req, res) {
+  const { userName, timeStamp, content, image } = req.body;
 
-//   const newPost = { userName, timeStamp, content, image };
+  const newPost = { userName, timeStamp, content, image };
 
-//   await db.collection("posts").insertOne(newPost);
+  await db.collection("posts").insertOne(newPost);
 
-//   res.status(201).json(newPost);
-// });
+  res.status(201).json(newPost);
+});
 
 module.exports = router;
