@@ -11,9 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 let db = null;
 
 async function startServer() {
-  const client = await mongodb.MongoClient.connect(
-    "mongodb+srv://admin:admin@cluster0.t9zsx.mongodb.net/facebook"
-  );
+  const client = await mongodb.MongoClient.connect("mongodb+srv://admin:admin@cluster0.t9zsx.mongodb.net/facebook");
 
   db = client.db();
 
