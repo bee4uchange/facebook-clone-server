@@ -11,11 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 let db = null;
 
 async function startServer() {
-  const client = await mongodb.MongoClient.connect("mongodb+srv://admin:admin@cluster0.t9zsx.mongodb.net/facebook");
+  const client = await mongodb.MongoClient.connect(
+    process.env.MONGODB_URL ||
+      "mongodb+srv://admin:admin@cluster0.t9zsx.mongodb.net/facebook"
+  );
 
   db = client.db();
 
-  app.listen(3001);
+  app.listen(process.env.PORT || 3001);
   console.log("Listening port 3001");
 }
 
