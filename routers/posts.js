@@ -12,7 +12,7 @@ router.post('/create', async function createPost(req, res) {
 
   const newPost = { userName, timeStamp, content, image };
 
-  await db.collection("posts").insertOne(newPost);
+  await req.db.collection("posts").insertOne(newPost);
 
   res.status(201).json(newPost);
 });
