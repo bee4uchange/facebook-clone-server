@@ -13,9 +13,9 @@ router.post('/create', function createPost(req, res) {
 
   const newPost = { userName, timeStamp, content, image };
 
-  await db.collection("posts").insertOne(newQuestion);
+  await db.collection("posts").insertOne(newPost);
 
-  res.status(201).json(newQuestion);
+  res.status(201).json(newPost);
 });
 
 module.exports = router;
