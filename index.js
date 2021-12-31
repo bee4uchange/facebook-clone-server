@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 let db = null;
 
 async function startServer() {
-  const client = await mongodb.MongoClient.connect(MONGODB_URL);
+  const client = await mongodb.MongoClient.connect(process.env.MONGODB_URL);
 
   db = client.db();
 
