@@ -7,25 +7,15 @@ router.get('/', async function getPosts(req, res) {
   res.status(200).json(posts);
 });
 
-router.post('/post', function createPost(req, res) {
-  // const { answers, text, correctAnswer } = req.body;
-  // let error = false;
+router.post('/create', function createPost(req, res) {
+  const { userName, timeStamp, content, image } = req.body;
+  let error = false;
 
-  // answers.map((answer) => {
-  //   if (answer === "") {
-  //     error = true;
-  //   }
-  // });
+  const newPost = { userName, timeStamp, content, image };
 
-  // if (!text || correctAnswer === -1 || error) {
-  //   res.status(400).end("INVALID REQUEST");
-  // } else {
-  //   const newQuestion = { answers, text, correctAnswer };
+  await db.collection("posts").insertOne(newQuestion);
 
-  //   await db.collection("questions").insertOne(newQuestion);
-
-  //   res.status(201).json(newQuestion);
-  // }
+  res.status(201).json(newQuestion);
 });
 
 module.exports = router;
